@@ -1,0 +1,14 @@
+# New project
+composer create-project --prefer-dist laravel/laravel projectName "5.8.*"
+
+# Run downloaded project
+composer update
+php artisan key:generate
+
+# Important
+php artisan serve
+php artisan make:
+                .
+                .
+                .
+                .
