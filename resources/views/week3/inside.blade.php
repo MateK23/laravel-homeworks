@@ -35,6 +35,7 @@
 
 
     {{-- to import assets: href="{{ asset('assets/css/style.css') }}" --}}
+    @stack('scripts')
     {{-- alert(document.cookies) --}}
     --}}
 @endsection

@@ -17,7 +17,6 @@ use App\Posts;
 
 
 
-
 // Week 2
 
 Route::get('/week2_route', function () {
@@ -49,11 +48,11 @@ Route::get('/week3_page', function () {
 
 // Week 4
 
-Route::get('/index', function () {
-    return App\Models\Products::get();
-});
+// Route::get('/index', function () {
+//     return App\Models\Products::get();
+// });
 
-Route::get('/', "PostController@index")->name("index");
+Route::get('/index', "PostController@index")->name("index");
 Route::get('/posts/create', "PostController@create")->name("createposts");
 Route::post("/posts/store", "PostController@store")->name("storeposts");
 
@@ -61,3 +60,8 @@ Route::post("/posts/store", "PostController@store")->name("storeposts");
 Route::get('/products/create', "ProductController@create")->name("createproducts");
 Route::post("/products/store", "ProductController@store")->name("storeproducts");
 Route::get("/products/display", "ProductController@display")->name("displayproducts");
+
+// Week 6 Homework
+Route::get('/', function () {
+    return view('tmp.index');
+});
