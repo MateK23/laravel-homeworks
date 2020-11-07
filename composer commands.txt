@@ -5,10 +5,28 @@ composer create-project --prefer-dist laravel/laravel projectName "5.8.*"
 composer update
 php artisan key:generate
 
-# Important
+# Run
 php artisan serve
-php artisan make:
-                .
-                .
-                .
-                .
+
+# Migrations
+(make new db in localhost/phpmyadmin)
+(enter db name in .env)
+
+php artisan make:migration create_migration_name
+(make table)
+
+php artisan migrate
+
+# Models
+php artisan make:model Name (name should be table name)(Style: Capitalised)
+php artisan make:model Name -m (make migration and model together)
+
+# Controllers
+php artisan make:controller NameController (Style: Camelcase)
+
+# Middleware
+php artisan make:middleware Name (Style: Camelcase)
+
+# Seeder
+php artisan make:seeder Name
+php artisan db:seed

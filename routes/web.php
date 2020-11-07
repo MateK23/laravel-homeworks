@@ -12,38 +12,28 @@
 */
 
 use Illuminate\Http\Request;
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/index', function () {
-    return view('index');
-});
-
-
-
-
+use App\Http\Controllers\PostController;
+use App\Posts;
 
 
 
 
 // Week 2
 
-Route::get('/testroute', function () {
+Route::get('/week2_route', function () {
     return view('week2.form');
 });
 
-Route::post('/testpost', function (Request $req) {
+Route::post('/week2_post', function (Request $req) {
     $data = [
         [
             "name" => $req->post()['name'],
         ]
     ];
     return view("week2.table", ["newdata" => $data]);
-})->name("testpostroute");
+})->name("week2_postroute");
 
-Route::get("/testget/{id}", function ($id) {
+Route::get("/week2_get/{id}", function ($id) {
     return $id;
 });
 
@@ -52,3 +42,22 @@ Route::get("/testget/{id}", function ($id) {
 // })->name("testpostroute");
 
 // Week 3
+
+Route::get('/week3_page', function () {
+    return view('week3.inside');
+});
+
+// Week 4
+
+Route::get('/index', function () {
+    return App\Posts::get();
+});
+
+Route::get('/', "PostController@index")->name("index");
+Route::get('/posts/create', "PostController@create")->name("createposts");
+Route::post("/posts/store", "PostController@store")->name("storeposts");
+
+// Week 4 Homework
+Route::get('/products/create', "ProductsController@create")->name("createproducts");
+Route::post("/products/store", "ProductsController@store")->name("storeproducts");
+Route::get("/products/display", "ProductsController@display")->name("displayproducts");
