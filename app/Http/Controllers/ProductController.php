@@ -7,6 +7,10 @@ use App\Models\Products;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("CanPost");
+    }
     public function create()
     {
         return view("week4.homework.create");
@@ -15,11 +19,14 @@ class ProductController extends Controller
     {
         Products::create([
             "title" => $request->input("title"),
-            "description" => $request->input("description"),
+            "text" => $request->input("text"),
+            "short_description" => $request->input("short_description"),
         ]);
+        return Products::get();
     }
     public function display()
     {
-        return view("week4.homework.display");
+        return Products::get();
+        //return view("week4.homework.display")->title('$title');
     }
 }

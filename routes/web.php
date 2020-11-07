@@ -50,7 +50,7 @@ Route::get('/week3_page', function () {
 // Week 4
 
 Route::get('/index', function () {
-    return App\Posts::get();
+    return App\Models\Products::get();
 });
 
 Route::get('/', "PostController@index")->name("index");
@@ -58,6 +58,6 @@ Route::get('/posts/create', "PostController@create")->name("createposts");
 Route::post("/posts/store", "PostController@store")->name("storeposts");
 
 // Week 4 Homework
-Route::get('/products/create', "ProductsController@create")->name("createproducts");
-Route::post("/products/store", "ProductsController@store")->name("storeproducts");
-Route::get("/products/display", "ProductsController@display")->name("displayproducts");
+Route::get('/products/create', "ProductController@create")->name("createproducts");
+Route::post("/products/store", "ProductController@store")->name("storeproducts");
+Route::get("/products/display", "ProductController@display")->name("displayproducts");
