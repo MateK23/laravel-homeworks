@@ -3,6 +3,7 @@ composer create-project --prefer-dist laravel/laravel projectName "5.8.*"
 
 # Run downloaded project
 composer update
+xcopy .env.example .env
 php artisan key:generate
 
 # Run
